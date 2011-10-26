@@ -1,4 +1,5 @@
 .DS_Store
 .idea
+nbproject/
 phpunit.xml
 Tests/autoload.php
