@@ -53,14 +53,14 @@ class UrlAutoConverterTwigExtensionTest extends \PHPUnit_Framework_TestCase
                 'Lorem ipsum t.fff dolor sit amet, consectetuer.'                                       => 'Lorem ipsum t.fff dolor sit amet, consectetuer.',
             ),
         );
-        
+
         foreach($testStrings as $case) {
             foreach($case as $input=>$output) {
                 $this->assertEquals($output, $classInstance->autoconverturls($input));
             }
         }
     }
-   
+
     private function assertIsArray($test)
     {
         $this->assertTrue(is_array($test));

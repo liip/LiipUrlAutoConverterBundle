@@ -13,12 +13,12 @@ class LiipUrlAutoConverterExtension extends Extension
     {
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('urlautoconverter.xml');
-        
+
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
         foreach ($config as $key => $value) {
             $container->setParameter(sprintf('liip_url_auto_converter.%s', $key), $value);
-        }        
+        }
     }
 }
