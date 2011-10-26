@@ -8,17 +8,17 @@ use Liip\UrlAutoConverterBundle\Extension\UrlAutoConverterTwigExtension;
 class UrlAutoConverterTwigExtensionTest extends \PHPUnit_Framework_TestCase
 {
     public function testGetFilters()
-    {        
+    {
         $classInstance = new UrlAutoConverterTwigExtension();
         $returnArray = $classInstance->getFilters();
-        
+
         $this->assertIsArray($returnArray);
         $this->assertArrayHasKey('converturls', $returnArray);
         $this->assertInstanceOf('Twig_Filter_Method', $returnArray['converturls']);
         $this->assertEquals(array('html'), $returnArray['converturls']->getSafe(new \Twig_Node()));
     }
-    
-    public function testAutoConvertUrls() 
+
+    public function testAutoConvertUrls()
     {
         $classInstance = new UrlAutoConverterTwigExtension();
 

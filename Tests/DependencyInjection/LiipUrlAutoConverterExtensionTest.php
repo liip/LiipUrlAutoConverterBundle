@@ -27,7 +27,7 @@ class LiipUrlAutoConverterExtensionTest extends \PHPUnit_Framework_TestCase
         $this->configuration = new ContainerBuilder();
         $loader = new LiipUrlAutoConverterExtension();
         $loader->load(array(array('linkclass' => 'foo', 'target' => 'bar', 'debugmode' => true)), $this->configuration);
-        
+
         $this->assertParameter('foo', 'liip_url_auto_converter.linkclass');
         $this->assertParameter('bar', 'liip_url_auto_converter.target');
         $this->assertParameter(true, 'liip_url_auto_converter.debugmode');

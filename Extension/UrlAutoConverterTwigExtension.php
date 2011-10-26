@@ -4,8 +4,8 @@ namespace Liip\UrlAutoConverterBundle\Extension;
 
 class UrlAutoConverterTwigExtension extends \Twig_Extension
 {
-    protected $linkClass;    
-    protected $target; 
+    protected $linkClass;
+    protected $target;
     protected $debugMode;
 
     // @codeCoverageIgnoreStart
@@ -40,7 +40,7 @@ class UrlAutoConverterTwigExtension extends \Twig_Extension
     /**
      * method that finds different occurrences of urls or email addresses in a string
      * @param string $string input string, can be long text
-     * @return string string with replaced links 
+     * @return string string with replaced links
      */
     public function autoConvertUrls($string)
     {
@@ -50,7 +50,7 @@ class UrlAutoConverterTwigExtension extends \Twig_Extension
         return $stringFiltered;
     }
 
-    public function callbackReplace($matches) 
+    public function callbackReplace($matches)
     {
         $url = $matches[0];
         $urlWithPrefix = $matches[0];
@@ -58,7 +58,7 @@ class UrlAutoConverterTwigExtension extends \Twig_Extension
         if (strpos($url, '@') !== false) {
             $urlWithPrefix = 'mailto:'.$url;
         } else if (strpos($url, 'https://') === 0 ) {
-            $urlWithPrefix = $url;     
+            $urlWithPrefix = $url;
         } else if (strpos($url, 'http://') !== 0) {
             $urlWithPrefix = 'http://'.$url;
         }

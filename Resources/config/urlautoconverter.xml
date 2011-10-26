@@ -12,10 +12,10 @@
             </call>
             <call method="setTarget">
                 <argument>%liip_url_auto_converter.target%</argument>
-            </call>            
+            </call>
             <call method="setDebugMode">
                 <argument>%liip_url_auto_converter.debugmode%</argument>
-            </call>            
+            </call>
         </service>
     </services>
 
