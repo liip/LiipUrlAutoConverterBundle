@@ -39,8 +39,8 @@ class UrlAutoConverterTwigExtension extends \Twig_Extension
 
     /**
      * method that finds different occurrences of urls or email addresses in a string
-     * @param string $string input string, can be long text
-     * @return string string with replaced links
+     * @param string $string input string
+     * @return string with replaced links
      */
     public function autoConvertUrls($string)
     {
