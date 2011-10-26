@@ -58,7 +58,9 @@ class UrlAutoConverterTwigExtension extends \Twig_Extension
         //check if its ermail or missing "http://"
         if (strpos($url, '@') !== false) {
             $urlWithPrefix = 'mailto:'.$url;
-        } else if ( strpos($url, 'http://') !== 0 ) {
+        } else if(strpos($url, 'https://') === 0 ) {
+            $urlWithPrefix = $url;     
+        } else if (strpos($url, 'http://') !== 0) {
             $urlWithPrefix = 'http://'.$url;
         }
         //debug mode green highlighting
