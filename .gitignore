@@ -3,3 +3,6 @@
 nbproject/
 phpunit.xml
 Tests/autoload.php
+vendor/symfony
+vendor/twig
+vendor/twig-extensions
