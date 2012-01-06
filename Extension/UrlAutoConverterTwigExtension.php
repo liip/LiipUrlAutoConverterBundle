@@ -52,7 +52,7 @@ class UrlAutoConverterTwigExtension extends \Twig_Extension
 
     public function callbackReplace($matches)
     {
-        if ($matches[1] != '') {
+        if ($matches[1] !== '') {
             return $matches[0]; // don't modify existing <a href="">links</a>
         }
 
