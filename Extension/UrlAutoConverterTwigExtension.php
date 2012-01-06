@@ -44,7 +44,7 @@ class UrlAutoConverterTwigExtension extends \Twig_Extension
      */
     public function autoConvertUrls($string)
     {
-        $pattern = '/[-a-zA-Z0-9@:%_\+.~#?&\/\/=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&\/\/=]*)?/';
+        $pattern = '/(href=")?([-a-zA-Z0-9@:%_\+.~#?&\/\/=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&\/\/=]*)?)/';
         $stringFiltered = preg_replace_callback($pattern, array($this, 'callbackReplace'), $string);
 
         return $stringFiltered;
@@ -52,8 +52,12 @@ class UrlAutoConverterTwigExtension extends \Twig_Extension
 
     public function callbackReplace($matches)
     {
-        $url = $matches[0];
-        $urlWithPrefix = $matches[0];
+        if ($matches[1] != '') {
+            return $matches[0]; // don't modify existing <a href="">links</a>
+        }
+
+        $url = $matches[2];
+        $urlWithPrefix = $matches[2];
 
         if (strpos($url, '@') !== false) {
             $urlWithPrefix = 'mailto:'.$url;
