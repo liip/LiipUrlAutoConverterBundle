@@ -66,6 +66,10 @@ class UrlAutoConverterTwigExtensionTest extends \PHPUnit_Framework_TestCase
                 'Lorem ipsum dolor sit amet, https://any.kind.of.domain.tld/with/path/of/any/depth.ext consectetuer adipiscing'
             ),
             array(
+                'Lorem ipsum <a href="http://test.com">testlink</a> aksjdhasd',
+                'Lorem ipsum <a href="http://test.com">testlink</a> aksjdhasd'
+            ),
+            array(
                 'Lorem ipsum dolor sit amet, <a href="mailto:test@test.com" class="" target="">test@test.com</a> consectetuer.',
                 'Lorem ipsum dolor sit amet, test@test.com consectetuer.'
             ),
