@@ -1,0 +1,26 @@
+{
+    "name": "liip/url-auto-converter-bundle",
+    "type": "symfony-bundle",
+    "description": "This bundle adds a Twig Extension with a filter for automatically converting urls and emails in a string to html links",
+    "keywords": ["url"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Liip AG",
+            "homepage": "http://www.liip.ch/"
+        },
+        {
+            "name": "Community contributions",
+            "homepage": "https://github.com/liip/LiipThemeBundle/contributors"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.2",
+        "symfony/framework-bundle": ">=2.0,<2.2",
+        "twig/twig":" >=1.0,<2.0-dev"
+    },
+    "autoload": {
+        "psr-0": { "Liip\\UrlAutoConverterBundle": "" }
+    },
+    "target-dir": "Liip/UrlAutoConverterBundle"
+}

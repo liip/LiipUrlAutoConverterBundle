@@ -2,7 +2,6 @@
 .idea
 nbproject/
 phpunit.xml
-Tests/autoload.php
-vendor/symfony
-vendor/twig
-vendor/twig-extensions
+vendor/
+composer.phar
+composer.lock

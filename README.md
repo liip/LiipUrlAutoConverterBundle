@@ -2,7 +2,7 @@
 
 ## About ##
 
-This bundle will add a Twig Extension for templates with a new filter for automatically converting urls and emails in a string to html links.
+This bundle adds a Twig Extension with a filter for automatically converting urls and emails in a string to html links.
 In the Format: "<a href="http://liip.ch">liip.ch</a>" for urls or "<a href="mailto:info@liip.ch">info@liip.ch</a>" for emails.
 
 [![Build Status](https://secure.travis-ci.org/liip/LiipUrlAutoConverterBundle.png)](http://travis-ci.org/liip/LiipUrlAutoConverterBundle)
