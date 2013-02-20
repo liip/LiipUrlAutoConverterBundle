@@ -22,5 +22,10 @@
     "autoload": {
         "psr-0": { "Liip\\UrlAutoConverterBundle": "" }
     },
-    "target-dir": "Liip/UrlAutoConverterBundle"
+    "target-dir": "Liip/UrlAutoConverterBundle",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
 }
