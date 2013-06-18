@@ -69,6 +69,9 @@ class UrlAutoConverterTwigExtension extends \Twig_Extension
 
         $style = ($this->debugMode) ? ' style="color:#00ff00"' : '';
 
+        // ignore tailing special characters
+        $urlWithPrefix = preg_replace("/(\.|\,|\?)$/", "", $urlWithPrefix);
+        
         return '<a href="'.$urlWithPrefix.'" class="'.$this->linkClass.'" target="'.$this->target.'"'.$style.'>'.$url.'</a>';
     }
 }
