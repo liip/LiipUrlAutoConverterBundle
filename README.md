@@ -11,7 +11,7 @@ In the Format: "<a href="http://liip.ch">liip.ch</a>" for urls or "<a href="mail
 
    1. Add this bundle to your composer.json:
 
-          $ php composer.phar require liip/url-auto-converter-bundle:dev-master
+        $ php composer.phar require liip/url-auto-converter-bundle:dev-master
 
     2. Add the Liip namespace to your autoloader:
 
