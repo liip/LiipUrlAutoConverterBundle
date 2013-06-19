@@ -17,9 +17,9 @@
         }
     ],
     "require": {
-        "php": ">=5.3.2",
-        "symfony/framework-bundle": ">=2.0,<2.3-dev",
-        "twig/twig":" >=1.0,<2.0-dev"
+        "php": ">=5.3.3",
+        "symfony/framework-bundle": "~2.0",
+        "twig/twig": "1.*"
     },
     "autoload": {
         "psr-0": { "Liip\\UrlAutoConverterBundle": "" }
