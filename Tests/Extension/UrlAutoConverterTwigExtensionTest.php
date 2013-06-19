@@ -100,7 +100,19 @@ class UrlAutoConverterTwigExtensionTest extends \PHPUnit_Framework_TestCase
             array(
                 'Lorem ipsum t.fff dolor sit amet, consectetuer.',
                 'Lorem ipsum t.fff dolor sit amet, consectetuer.'
-            )
+            ),
+            array(
+                'Lorem ipsum dolor sit amet, <a href="http://&&http://re.name" class="" target="">&&http://re.name</a>. Period!',
+                'Lorem ipsum dolor sit amet, &&http://re.name. Period!'
+            ),
+            array(
+                'Lorem ipsum dolor sit amet, <a href="http://&&http://re.name" class="" target="">&&http://re.name</a>, really?',
+                'Lorem ipsum dolor sit amet, &&http://re.name, really?'
+            ),
+            array(
+                'Lorem ipsum dolor sit amet, <a href="http://&&http://re.name" class="" target="">&&http://re.name</a>?',
+                'Lorem ipsum dolor sit amet, &&http://re.name?'
+            ),
         );
     }
 
