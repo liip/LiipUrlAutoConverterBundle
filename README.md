@@ -9,9 +9,9 @@ In the Format: "<a href="http://liip.ch">liip.ch</a>" for urls or "<a href="mail
 
 ## Installation ##
 
-    1. Add this bundle to your project as a Git submodule:
+   1. Add this bundle to your composer.json:
 
-        $ git submodule add git://github.com/liip/LiipUrlAutoConverterBundle.git vendor/bundles/Liip/LiipUrlAutoConverterBundle
+          $ php composer.phar require liip/url-auto-converter-bundle:dev-master
 
     2. Add the Liip namespace to your autoloader:
 
