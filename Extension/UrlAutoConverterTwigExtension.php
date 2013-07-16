@@ -7,6 +7,7 @@ class UrlAutoConverterTwigExtension extends \Twig_Extension
     protected $linkClass;
     protected $target;
     protected $debugMode;
+    protected $debugColor = '#00ff00';
 
     // @codeCoverageIgnoreStart
     public function getName()
@@ -28,6 +29,11 @@ class UrlAutoConverterTwigExtension extends \Twig_Extension
     {
         $this->debugMode = $debug;
     }
+
+    public function setDebugColor($color)
+    {
+        $this->debugColor = $color;
+    }
     // @codeCoverageIgnoreEnd
 
     public function getFilters()
@@ -44,7 +50,7 @@ class UrlAutoConverterTwigExtension extends \Twig_Extension
      */
     public function autoConvertUrls($string)
     {
-        $pattern = '/(href=")?([-a-zA-Z0-9@:%_\+.~#?&\/\/=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&\/\/=]*)?)/';
+        $pattern = '/(href=")?([-a-zA-Z0-9@:%_\+.~#?&\/\/=]{2,256}\.[a-z]{2,4}\b(\/?[-a-zA-Z0-9@:%_\+.~#?&\/\/=]+)?)/';
         $stringFiltered = preg_replace_callback($pattern, array($this, 'callbackReplace'), $string);
 
         return $stringFiltered;
@@ -61,17 +67,24 @@ class UrlAutoConverterTwigExtension extends \Twig_Extension
 
         if (strpos($url, '@') !== false) {
             $urlWithPrefix = 'mailto:'.$url;
-        } else if (strpos($url, 'https://') === 0 ) {
+        } elseif (strpos($url, 'https://') === 0 ) {
             $urlWithPrefix = $url;
-        } else if (strpos($url, 'http://') !== 0) {
+        } elseif (strpos($url, 'http://') !== 0) {
             $urlWithPrefix = 'http://'.$url;
         }
 
-        $style = ($this->debugMode) ? ' style="color:#00ff00"' : '';
+        $style = ($this->debugMode) ? ' style="color:'.$this->debugColor.'"' : '';
 
         // ignore tailing special characters
-        $urlWithPrefix = preg_replace("/(\.|\,|\?)$/", "", $urlWithPrefix);
-        
-        return '<a href="'.$urlWithPrefix.'" class="'.$this->linkClass.'" target="'.$this->target.'"'.$style.'>'.$url.'</a>';
+        // TODO: likely this could be skipped entirely with some more tweakes to the regular expression
+        if (preg_match("/^(.*)(\.|\,|\?)$/", $urlWithPrefix, $matches)) {
+            $urlWithPrefix = $matches[1];
+            $url = substr($url, 0, -1);
+            $punctuation = $matches[2];
+        } else {
+            $punctuation = '';
+        }
+
+        return '<a href="'.$urlWithPrefix.'" class="'.$this->linkClass.'" target="'.$this->target.'"'.$style.'>'.$url.'</a>'.$punctuation;
     }
 }
