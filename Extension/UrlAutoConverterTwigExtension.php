@@ -39,7 +39,15 @@ class UrlAutoConverterTwigExtension extends \Twig_Extension
     public function getFilters()
     {
         return array(
-            'converturls' => new \Twig_Filter_Method($this, 'autoConvertUrls', array('is_safe' => array('html')))
+            'converturls' => new \Twig_Filter_Method($this, 'autoConvertUrls', array('is_safe' => array('html'))),
+            new \Twig_SimpleFilter(
+                'secureconverturls',
+                array($this, 'secureAutoConvertUrls'),
+                array(
+                    'is_safe' => array('html'),
+                    'pre_escape' => 'html' // Escape the input to prevent JavaScript injection
+                )
+            )
         );
     }
 
@@ -54,6 +62,18 @@ class UrlAutoConverterTwigExtension extends \Twig_Extension
         $stringFiltered = preg_replace_callback($pattern, array($this, 'callbackReplace'), $string);
 
         return $stringFiltered;
+    }
+
+    /**
+     * This method receives an pre-escaped string to assure that no JavaScript like for example
+     * <a href="#" onmouseenter="var cookie = encodeURIComponent(document.cookie);var request = new XMLHttpRequest();
+     * ...and so on...">steal my php session cookies</a>. This also prevents users from using other HTML tags as well
+     * which is possible using the converturls filter.
+     * After that it simply runs the unsecure UrlAutoConverterTwigExtension::autoConvertUrls($string)
+     */
+    public function secureAutoConvertUrls($string)
+    {
+        return $this->autoConvertUrls($string);
     }
 
     public function callbackReplace($matches)
