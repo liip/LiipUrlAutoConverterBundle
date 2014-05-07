@@ -21,7 +21,7 @@ class UrlAutoConverterTwigExtensionTest extends \PHPUnit_Framework_TestCase
     public function provider()
     {
         return array(
-/*
+
             array(
                 'Lorem ipsum dolor sit amet, <a href="http://www.test.com" class="" target="">www.test.com</a> consectetuer.',
                 'Lorem ipsum dolor sit amet, www.test.com consectetuer.'
@@ -51,11 +51,11 @@ class UrlAutoConverterTwigExtensionTest extends \PHPUnit_Framework_TestCase
                 'Lorem ipsum subsubsub.subtest.test.com ad amet, lala aksjdhasd.'
             ),
             array(
-                'Lorem ipsum <a href="http://www.test.com/kjsdsd/safs?dfa=kdjf&sfddf=dsafsd" class="" target="">www.test.com/kjsdsd/safs.php?dfa=kdjf&sfddf=dsafsd</a> ad amet, lala aksjdhasd.',
+                'Lorem ipsum <a href="http://www.test.com/kjsdsd/safs?dfa=kdjf&sfddf=dsafsd" class="" target="">www.test.com/kjsdsd/safs?dfa=kdjf&sfddf=dsafsd</a> ad amet, lala aksjdhasd.',
                 'Lorem ipsum www.test.com/kjsdsd/safs?dfa=kdjf&sfddf=dsafsd ad amet, lala aksjdhasd.'
             ),
             array(
-                'Lorem ipsum <a href="http://www.test.com/kjsdsd/safs.php?dfa=kdjf&sfddf=dsafsd" class="" target="">www.test.com/kjsdsd/safs?dfa=kdjf&sfddf=dsafsd</a> ad amet, lala aksjdhasd.',
+                'Lorem ipsum <a href="http://www.test.com/kjsdsd/safs.php?dfa=kdjf&sfddf=dsafsd" class="" target="">www.test.com/kjsdsd/safs.php?dfa=kdjf&sfddf=dsafsd</a> ad amet, lala aksjdhasd.',
                 'Lorem ipsum www.test.com/kjsdsd/safs.php?dfa=kdjf&sfddf=dsafsd ad amet, lala aksjdhasd.'
             ),
             array(
@@ -106,15 +106,14 @@ class UrlAutoConverterTwigExtensionTest extends \PHPUnit_Framework_TestCase
                 'Lorem ipsum t.fff dolor sit amet, consectetuer.',
                 'Lorem ipsum t.fff dolor sit amet, consectetuer.'
             ),
-*/
             array(
                 'Lorem ipsum dolor sit amet, <a href="http://&&http://re.name" class="" target="">&&http://re.name</a>. Period!',
                 'Lorem ipsum dolor sit amet, &&http://re.name. Period!'
             ),
-//            array(
-//                'Lorem ipsum dolor sit amet, <a href="http://&&http://re.name" class="" target="">&&http://re.name</a>, really?',
-//                'Lorem ipsum dolor sit amet, &&http://re.name, really?'
-//            ),
+            array(
+                'Lorem ipsum dolor sit amet, <a href="http://&&http://re.name" class="" target="">&&http://re.name</a>, really?',
+                'Lorem ipsum dolor sit amet, &&http://re.name, really?'
+            ),
             array(
                 'Lorem ipsum dolor sit amet, <a href="http://&&http://re.name" class="" target="">&&http://re.name</a>?',
                 'Lorem ipsum dolor sit amet, &&http://re.name?'
