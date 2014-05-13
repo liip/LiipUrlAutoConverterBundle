@@ -126,6 +126,10 @@ class UrlAutoConverterTwigExtensionTest extends \PHPUnit_Framework_TestCase
                 'Lorem ipsum dolor sit amet, <a href="http://www.test.com/my_page(with_parentheses).htm" class="" target="">http://www.test.com/my_page(with_parentheses).htm</a> consectetuer.',
                 'Lorem ipsum dolor sit amet, http://www.test.com/my_page(with_parentheses).htm consectetuer.'
             ),
+            array(
+                'Lorem ipsum dolor sit amet, <a href="http://test.com?param=1" class="" target="">http://test.com?param=1</a> consectetuer.',
+                'Lorem ipsum dolor sit amet, http://test.com?param=1 consectetuer.'
+            ),
         );
     }
 
