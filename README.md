@@ -1,11 +1,14 @@
 # LiipUrlAutoConverterBundle #
 
+[![Latest Stable Version](https://poser.pugx.org/liip/url-auto-converter-bundle/version.png)](https://packagist.org/packages/liip/url-auto-converter-bundle)
+[![Latest Unstable Version](https://poser.pugx.org/liip/url-auto-converter-bundle/v/unstable.png)](//packagist.org/packages/liip/url-auto-converter-bundle)
+[![Total Downloads](https://poser.pugx.org/liip/url-auto-converter-bundle/d/total.png)](https://packagist.org/packages/liip/url-auto-converter-bundle)
+[![Build Status](https://secure.travis-ci.org/liip/LiipUrlAutoConverterBundle.png)](http://travis-ci.org/liip/LiipUrlAutoConverterBundle)
+
 ## About ##
 
 This bundle adds a Twig Extension with a filter for automatically converting urls and emails in a string to html links.
 In the Format: "<a href="http://liip.ch">liip.ch</a>" for urls or "<a href="mailto:info@liip.ch">info@liip.ch</a>" for emails.
-
-[![Build Status](https://secure.travis-ci.org/liip/LiipUrlAutoConverterBundle.png)](http://travis-ci.org/liip/LiipUrlAutoConverterBundle)
 
 ## Installation ##
 
