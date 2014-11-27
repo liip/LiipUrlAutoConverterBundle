@@ -7,23 +7,31 @@ php:
   - 5.6
   - hhvm
 
+branches:
+  only:
+    - master
+    - /^\d+\.\d+$/
+
 matrix:
   include:
     - php: 5.5
-      env: SYMFONY_VERSION='2.0.*'
+      env: SYMFONY_VERSION=2.0.*
     - php: 5.5
-      env: SYMFONY_VERSION='2.1.*'
+      env: SYMFONY_VERSION=2.1.*
     - php: 5.5
-      env: SYMFONY_VERSION='2.2.*'
+      env: SYMFONY_VERSION=2.2.*
     - php: 5.5
-      env: SYMFONY_VERSION='2.3.*'
+      env: SYMFONY_VERSION=2.3.*
     - php: 5.5
-      env: SYMFONY_VERSION='2.4.*'
+      env: SYMFONY_VERSION=2.4.*
     - php: 5.5
-      env: SYMFONY_VERSION='dev-master'
+      env: SYMFONY_VERSION='2.6.*@dev'
+    - php: 5.5
+      env: SYMFONY_VERSION='2.7.*@dev'
 
 before_script:
-  - sh -c 'if [ "$SYMFONY_VERSION" != "" ]; then composer require --no-update symfony/symfony=$SYMFONY_VERSION; fi;'
+  - composer self-update
+  - sh -c 'if [ "$SYMFONY_VERSION" != "" ]; then composer require --dev --no-update symfony/symfony=$SYMFONY_VERSION; fi;'
   - composer install --dev --prefer-source
 
 notifications:
