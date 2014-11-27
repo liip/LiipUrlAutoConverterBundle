@@ -57,7 +57,7 @@ class UrlAutoConverterTwigExtension extends \Twig_Extension
      */
     public function autoConvertUrls($string)
     {
-        $pattern = '/(href=")?([-a-zA-Z0-9@:%_\+.~#?&\/\/=]{2,256}\.[a-z]{2,4}\b(\/?[-\p{L}0-9@:%_\+.~#?&\/\/=\(\)]*)?)/u';
+        $pattern = '/(href=")?([-a-zA-Z0-9@:%_\+.~#?&\/\/=]{2,256}\.[a-z]{2,4}\b(\/?[-\p{L}0-9@:%_\+.~#?&\/\/=]*)?)/u';
         $stringFiltered = preg_replace_callback($pattern, array($this, 'callbackReplace'), $string);
 
         return $stringFiltered;
