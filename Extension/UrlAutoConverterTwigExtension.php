@@ -52,46 +52,15 @@ class UrlAutoConverterTwigExtension extends \Twig_Extension
 
     /**
      * method that finds different occurrences of urls or email addresses in a string
-     * @param string $string input string
-     * @return string with replaced links
+     *
+     * @param string    $text       Text to parse
+     * @param int       $limit      Truncate URLs longer than the limit
+     * @param string    $tagfill    Insert some magic into the <a> tags
+     * @param bool      $autoTitle  If to add a title attribute to the link in case the url is truncated
+     * @return string
      */
-    public function autoConvertUrls($string)
+    public function autoConvertUrls($text, $limit= 30, $tagfill = '', $autoTitle = true)
     {
-        $pattern = '/(href=")?([-a-zA-Z0-9@:%_\+.~#?&\/\/=]{2,256}\.[a-z]{2,4}\b(\/?[-\p{L}0-9@:%_\+.~#?&\/\/=\(\)]*)?)/u';
-        $stringFiltered = preg_replace_callback($pattern, array($this, 'callbackReplace'), $string);
-
-        return $stringFiltered;
-    }
-
-    public function callbackReplace($matches)
-    {
-        if ($matches[1] !== '') {
-            return $matches[0]; // don't modify existing <a href="">links</a>
-        }
-
-        $url = $matches[2];
-        $urlWithPrefix = $matches[2];
-
-        if (strpos($url, '@') !== false) {
-            $urlWithPrefix = 'mailto:'.$url;
-        } elseif (strpos($url, 'https://') === 0 ) {
-            $urlWithPrefix = $url;
-        } elseif (strpos($url, 'http://') !== 0) {
-            $urlWithPrefix = 'http://'.$url;
-        }
-
-        $style = ($this->debugMode) ? ' style="color:'.$this->debugColor.'"' : '';
-
-        // ignore tailing special characters
-        // TODO: likely this could be skipped entirely with some more tweakes to the regular expression
-        if (preg_match("/^(.*)(\.|\,|\?)$/", $urlWithPrefix, $matches)) {
-            $urlWithPrefix = $matches[1];
-            $url = substr($url, 0, -1);
-            $punctuation = $matches[2];
-        } else {
-            $punctuation = '';
-        }
-
-        return '<a href="'.$urlWithPrefix.'" class="'.$this->linkClass.'" target="'.$this->target.'"'.$style.'>'.$url.'</a>'.$punctuation;
+        return autolink_email(autolink($text, $limit, $tagfill, $autoTitle), $tagfill);
     }
 }
