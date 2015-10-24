@@ -19,12 +19,11 @@
     "require": {
         "php": ">=5.3.3",
         "symfony/framework-bundle": "~2.0",
-        "twig/twig": "1.*"
+        "twig/twig": "~1.0"
     },
     "autoload": {
-        "psr-0": { "Liip\\UrlAutoConverterBundle": "" }
+        "psr-4": { "Liip\\UrlAutoConverterBundle\\": "" }
     },
-    "target-dir": "Liip/UrlAutoConverterBundle",
     "extra": {
         "branch-alias": {
             "dev-master": "1.1.x-dev"
