@@ -10,6 +10,7 @@ class UrlAutoConverterTwigExtension extends \Twig_Extension
     protected $debugColor = '#00ff00';
 
     // @codeCoverageIgnoreStart
+
     public function getName()
     {
         return 'liip_urlautoconverter';
@@ -34,6 +35,7 @@ class UrlAutoConverterTwigExtension extends \Twig_Extension
     {
         $this->debugColor = $color;
     }
+
     // @codeCoverageIgnoreEnd
 
     public function getFilters()
@@ -46,13 +48,15 @@ class UrlAutoConverterTwigExtension extends \Twig_Extension
                     'pre_escape' => 'html',
                     'is_safe' => array('html'),
                 )
-            )
+            ),
         );
     }
 
     /**
-     * method that finds different occurrences of urls or email addresses in a string
+     * method that finds different occurrences of urls or email addresses in a string.
+     *
      * @param string $string input string
+     *
      * @return string with replaced links
      */
     public function autoConvertUrls($string)
@@ -74,7 +78,7 @@ class UrlAutoConverterTwigExtension extends \Twig_Extension
 
         if (strpos($url, '@') !== false) {
             $urlWithPrefix = 'mailto:'.$url;
-        } elseif (strpos($url, 'https://') === 0 ) {
+        } elseif (strpos($url, 'https://') === 0) {
             $urlWithPrefix = $url;
         } elseif (strpos($url, 'http://') !== 0) {
             $urlWithPrefix = 'http://'.$url;

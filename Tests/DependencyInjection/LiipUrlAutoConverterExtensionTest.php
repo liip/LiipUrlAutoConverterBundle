@@ -21,7 +21,6 @@ class LiipUrlAutoConverterExtensionTest extends \PHPUnit_Framework_TestCase
         $this->assertHasDefinition('liip_url_auto_converter.twig.extension');
     }
 
-
     public function testTargetCustom()
     {
         $this->configuration = new ContainerBuilder();
