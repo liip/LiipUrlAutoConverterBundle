@@ -12,9 +12,10 @@ class UrlAutoConverterTwigExtensionTest extends \PHPUnit_Framework_TestCase
         $returnArray = $classInstance->getFilters();
 
         $this->assertIsArray($returnArray);
-        $this->assertArrayHasKey('converturls', $returnArray);
-        $this->assertInstanceOf('Twig_Filter_Method', $returnArray['converturls']);
-        $this->assertEquals(array('html'), $returnArray['converturls']->getSafe(new \Twig_Node()));
+        $this->assertNotEmpty($returnArray);
+        $filter = reset($returnArray);
+        $this->assertInstanceOf('Twig_SimpleFilter', $filter);
+        $this->assertEquals(array('html'), $filter->getSafe(new \Twig_Node()));
     }
 
     public function provider()
@@ -28,7 +29,7 @@ class UrlAutoConverterTwigExtensionTest extends \PHPUnit_Framework_TestCase
             array(
                 'Lorem ipsum dolor sit amet, <a href="http://test.com" class="" target="">test.com</a> consectetuer adipiscing',
                 'Lorem ipsum dolor sit amet, test.com consectetuer adipiscing',
-            )  ,
+            ),
             array(
                 'Lorem ipsum dolor sit amet, <a href="http://test.com" class="" target="">http://test.com</a> aksjdhasd.',
                 'Lorem ipsum dolor sit amet, http://test.com aksjdhasd.',

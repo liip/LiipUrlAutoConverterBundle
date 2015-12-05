@@ -41,9 +41,9 @@ class UrlAutoConverterTwigExtension extends \Twig_Extension
     public function getFilters()
     {
         return array(
-            'converturls' => new \Twig_Filter_Method(
-                $this,
-                'autoConvertUrls',
+            new \Twig_SimpleFilter(
+                'converturls',
+                array($this, 'autoConvertUrls'),
                 array(
                     'pre_escape' => 'html',
                     'is_safe' => array('html'),
