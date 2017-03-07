@@ -13,7 +13,7 @@
         },
         {
             "name": "Community contributions",
-            "homepage": "https://github.com/liip/LiipThemeBundle/contributors"
+            "homepage": "https://github.com/liip/LiipUrlAutoConverterBundle/contributors"
         }
     ],
     "require": {
