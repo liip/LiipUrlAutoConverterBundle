@@ -9,7 +9,7 @@ class UrlAutoConverterTest extends \PHPUnit_Framework_TestCase
     public function testEscapedHtml()
     {
         if (method_exists('\Twig_Environment', 'createTemplate')) { // twig > 2.0
-            $twig = new \Twig_Environment(new \Twig_Loader_Array([]));
+            $twig = new \Twig_Environment(new \Twig_Loader_Array());
             $twig->addExtension(new UrlAutoConverterTwigExtension());
 
             $body = 'Hello <a href="javascript:alert(\'ups\');">name</a>!';
