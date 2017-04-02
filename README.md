@@ -38,7 +38,7 @@ The supported options for the LiipUrlAutoConverterBundle are: (put in /app/confi
         debugmode: false
 
 
-- "linkClass":  css class thath will be added automatically to converted links. default: "" (empty)
+- "linkClass":  css class that will be added automatically to converted links. default: "" (empty)
 - "target":     browser link target. default: "_blank"
 - "debugMode":  if true, links will be colored with a nasty green color - cool for testing. default: false
 
