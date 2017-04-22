@@ -2,9 +2,10 @@
 
 namespace Liip\UrlAutoConverterBundle\Tests\Functional\Twig;
 
+use PHPUnit\Framework\TestCase;
 use Liip\UrlAutoConverterBundle\Extension\UrlAutoConverterTwigExtension;
 
-class UrlAutoConverterTest extends \PHPUnit_Framework_TestCase
+class UrlAutoConverterTest extends TestCase
 {
     public function testEscapedHtml()
     {

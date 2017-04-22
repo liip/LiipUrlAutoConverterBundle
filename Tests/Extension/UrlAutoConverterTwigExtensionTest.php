@@ -2,9 +2,10 @@
 
 namespace Liip\UrlAutoConverterBundle\Tests\Extension;
 
+use PHPUnit\Framework\TestCase;
 use Liip\UrlAutoConverterBundle\Extension\UrlAutoConverterTwigExtension;
 
-class UrlAutoConverterTwigExtensionTest extends \PHPUnit_Framework_TestCase
+class UrlAutoConverterTwigExtensionTest extends TestCase
 {
     public function testGetFilters()
     {
