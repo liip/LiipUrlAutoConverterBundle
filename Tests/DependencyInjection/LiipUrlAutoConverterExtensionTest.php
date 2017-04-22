@@ -2,10 +2,11 @@
 
 namespace Liip\UrlAutoConverterBundle\Tests\DependencyInjection;
 
+use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Liip\UrlAutoConverterBundle\DependencyInjection\LiipUrlAutoConverterExtension;
 
-class LiipUrlAutoConverterExtensionTest extends \PHPUnit_Framework_TestCase
+class LiipUrlAutoConverterExtensionTest extends TestCase
 {
     private $configuration;
 
