@@ -1,3 +1,8 @@
+UNMAINTAINED
+============
+
+This bundle is no longer maintained. Feel free to fork it if needed.
+
 # LiipUrlAutoConverterBundle #
 
 [![Latest Stable Version](https://poser.pugx.org/liip/url-auto-converter-bundle/version.png)](https://packagist.org/packages/liip/url-auto-converter-bundle)
