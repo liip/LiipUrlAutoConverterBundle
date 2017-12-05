@@ -88,7 +88,7 @@ class UrlAutoConverterTwigExtension extends \Twig_Extension
 
         // ignore tailing special characters
         // TODO: likely this could be skipped entirely with some more tweakes to the regular expression
-        if (preg_match("/^(.*)(\.|\,|\?)$/", $urlWithPrefix, $matches)) {
+        if (preg_match("/^(.*)(\.|\,|\)|\?)$/", $urlWithPrefix, $matches)) {
             $urlWithPrefix = $matches[1];
             $url = substr($url, 0, -1);
             $punctuation = $matches[2];
